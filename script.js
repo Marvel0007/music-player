@@ -78,7 +78,7 @@ document.getElementById('next').addEventListener('click',()=>{
     else{
         songidx += 1;
     }
-    audioElement.src = `songs/${songidx}.mp3`;
+    audioElement.src = `${songidx}.mp3`;
     masterSongName.innerText = songs[songidx-1].songName;
         audioElement.currentTime = 0;
         audioElement.play();gif.style.opacity = 1;
@@ -93,7 +93,7 @@ document.getElementById('previous').addEventListener('click',()=>{
     else{
         songidx -= 1;
     }
-    audioElement.src = `songs/${songidx}.mp3`;
+    audioElement.src = `${songidx}.mp3`;
     masterSongName.innerText = songs[songidx-1].songName;
         audioElement.currentTime = 0;
         audioElement.play();gif.style.opacity = 1;

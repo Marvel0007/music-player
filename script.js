@@ -1,103 +1,94 @@
-console.log("Welcome to CJ");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ - Your favourite music is here</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- NEED CHANGES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="05faa07e-16b9-4e73-8ab3-221509c714de.jpg" alt="CJ"></li>
+            <li>Home</li>
+            <li>About</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="songlist">
+               <h1>Best if NCS -No Copyrigth Sounds</h1>
+               <div class="songitemcontainer">
+                    <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="1" class="fas songItemPlay fa-play-circle"></i></span></span>
+                    </div>
 
-let songidx = 0;
-let audioElement = new Audio('1.mp3');
-let masterPlay = document.getElementById('masterPlay');
-let myProgressBar = document.getElementById('myProgressBar');
-let gif = document.getElementById('gif');
-let songItems = Array.from(document.getElementsByClassName('songItem'));
-let songs = [
-    { songName: "The Revenge - Aari Aari", filePath: "1.mp3", coverPath: "1.jpg" },
-    { songName: "Jaate Hue Lamhon ", filePath: "2.mp3", coverPath: "2.jpg" },
-    { songName: "Jaan Se Guzarte Hain", filePath: "3.mp3", coverPath: "3.jpg" },
-    { songName: "Khwaab Dekhoon", filePath: "4.mp3", coverPath: "4.jpg" },
-    { songName: "Tabaahi", filePath: "5.mp3", coverPath: "5.jpg" },
-    { songName: "Khat - Khat", filePath: "6.mp3", coverPath: "6.jpg" },
-    { songName: "Chhaap Tilak ", filePath: "7.mp3", coverPath: "7.jpg" },
-    { songName: "Sitaare", filePath: "8.mp3", coverPath: "8.jpg" },
-    { songName: "Aashiqon Ki Colony", filePath: "9.mp3", coverPath: "9.jpg" },
-    { songName: "Tere Bin Yaara", filePath: "10.mp3", coverPath: "10.jpg" }
-]
-songItems.forEach((element, i) => {
-    element.getElementsByTagName('img')[0].src = songs[i].coverPath;
-    element.getElementsByClassName('songName')[0].innerText = songs[i].songName;
-});
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="2" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="3" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="4" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="5" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="6" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="7" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="8" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                    <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="9" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                     <div class="songItem">
+                        <img alt="1">
+                        <span class="songName">Let me Love You</span>
+                        <span class="songlistplay"><span class="timespan">05:34<i id="10" class="fas songItemPlay fa-play-circle"></i> </span></span>
+                    </div>
+                    
+               </div>
+        </div>
+        <div class="songbanner"></div>
+    </div>
 
-masterPlay.addEventListener('click',()=>{
-    if(audioElement.paused || audioElement.currentTime<=0){
-        audioElement.play();gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
-        gif.style.opacity = 1;
-    }
-    else{
-        audioElement.pause();
-        masterPlay.classList.remove('fa-pause-circle');
-        masterPlay.classList.add('fa-play-circle');
-        gif.style.opacity = 0;
-    }
-})
-audioElement.addEventListener('timeupdate', ()=>{
-    console.log('timeupdate');
-    progress = parseInt((audioElement.currentTime/audioElement.duration) *100);
-    myProgressBar.value = progress;
-})
-myProgressBar.addEventListener('change', ()=>{
-    audioElement.currentTime = myProgressBar.value * audioElement.duration/100;
-})
-
-const makeAllPlays = ()=>{
-    
-    Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-        element.classList.remove('fa-pause-circle');
-        element.classList.add('fa-play-circle');
-    })
-}
-
-Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-    element.addEventListener('click',(e)=>{
-        makeAllPlays();
-        songidx = parseInt(e.target.id);
-        e.target.classList.remove('fa-play-circle');
-        e.target.classList.add('fa-pause-circle');
-        audioElement.src = `${songidx}.mp3`;
-        masterSongName.innerText = songs[songidx-1].songName;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
-
-    })
-})
-
-document.getElementById('next').addEventListener('click',()=>{
-    if(songidx>=10){
-        songidx = 0;
-    }
-    else{
-        songidx += 1;
-    }
-    audioElement.src = `${songidx}.mp3`;
-    masterSongName.innerText = songs[songidx-1].songName;
-        audioElement.currentTime = 0;
-        audioElement.play();gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
-})
-
-document.getElementById('previous').addEventListener('click',()=>{
-    if(songidx<=0){
-        songidx = 0;
-    }
-    else{
-        songidx -= 1;
-    }
-    audioElement.src = `${songidx}.mp3`;
-    masterSongName.innerText = songs[songidx-1].songName;
-        audioElement.currentTime = 0;
-        audioElement.play();gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
-
-})
+    <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        <div class="icons">
+            <i class="fas fa-2x fa-step-backward" id="previous"></i>
+            <i class="fas fa-2x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-2x fa-step-forward" id="next"></i>
+        </div>
+        <div class="songInfo">
+            <img src="5uwq.gif" width="42px" id="gif"><span id="masterSongName">The Revenge - Aari Aari</span>
+        </div>
+    </div>
+   
+    <script  src="script.js"></script>
+</body>
+</html>
